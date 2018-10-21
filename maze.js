@@ -12,7 +12,20 @@ window.onload = () =>{
   function youLose (){
   		abstract++;
   		this.classList.add("youLose");
-  }
+  	}
 
 
+
+    end.addEventListener("mouseover", youWin);
+
+    function youWin(){
+
+        if (abstract < 1){
+            document.getElementById("status").innerHTML = "YOU WIN!";
+        }
+        else(
+            document.getElementById("status").innerHTML = "YOU LOSE!"
+
+        )
+    }
 }
