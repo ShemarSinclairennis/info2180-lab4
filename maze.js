@@ -1,54 +1,65 @@
 window.onload = () =>{
 
-  let boundary = document.querySelectorAll(".boundary");
-  let firstBoundary = document.getElementById("boundary1")
-  let maze = document.getElementById("maze");
-  let start = document.getElementById("start");
-  let end = document.getElementById("end");
-  let abstract = 0;
+    let boundary = document.querySelectorAll(".boundary");
+    let firstBoundary = document.getElementById("boundary1")
+    let start = document.getElementById("start");
+    let maze  = document.getElementById("maze");
+    let end = document.getElementById("end");
+    let impact = 0;
 
-  firstBoundary.addEvenListener("mouseover",youLose);
-  boundary.forEach( b=> {b.addEvenListener("mouseover",youLose)});
-  function youLose (){
-  		abstract++;
-  		this.classList.add("youLose");
-  	}
+
+
+    firstBoundary.addEventListener("mouseover", youLose);
+
+
+    boundary.forEach(b => {b.addEventListener("mouseover", youLose)});
+
+    
+
+    function youLose (){
+        impact++;
+        this.classList.add("youlose");
+    }
 
 
 
     end.addEventListener("mouseover", youWin);
 
-    function youWin(){
+    
 
-        if (abstract < 1){
+    function youWin(){
+        if (impact < 1){
             document.getElementById("status").innerHTML = "YOU WIN!";
         }
-        else(
-            document.getElementById("status").innerHTML = "YOU LOSE!"
 
+        else(
+
+            document.getElementById("status").innerHTML = "YOU LOSE!"
         )
+
     }
 
- start.addEventListener("click", restart);
+
+
+    start.addEventListener("click", restart);
+
+
 
     function restart(){
-
         boundary.forEach(b => {b.classList.remove("youlose")});
-
-        abstract=0;
-
+        impact=0;
         document.getElementById("status").innerHTML = "Move your mouse over the 'S' to begin.";
 
     }
 
-     maze.addEventListener("mouseleave", cheating);
+
+
+    maze.addEventListener("mouseleave", cheating);
 
 
 
     function cheating(){
-
         document.getElementById("status").innerHTML = "mouse outside maze <br> YOU CHEATED YOU LOSE!";
-
     }
 
 }
