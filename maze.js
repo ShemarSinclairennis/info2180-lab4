@@ -8,8 +8,11 @@ window.onload = () =>{
   let abstract = 0;
 
   firstBoundary.addEvenListener("mouseover",youLose);
+  boundary.forEach( b=> {b.addEvenListener("mouseover",youLose)});
   function youLose (){
   		abstract++;
   		this.classList.add("youLose");
   }
+
+
 }
