@@ -28,4 +28,17 @@ window.onload = () =>{
 
         )
     }
+
+ start.addEventListener("click", restart);
+
+    function restart(){
+
+        boundary.forEach(b => {b.classList.remove("youlose")});
+
+        abstract=0;
+
+        document.getElementById("status").innerHTML = "Move your mouse over the 'S' to begin.";
+
+    }
+
 }
