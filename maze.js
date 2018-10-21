@@ -41,4 +41,14 @@ window.onload = () =>{
 
     }
 
+     maze.addEventListener("mouseleave", cheating);
+
+
+
+    function cheating(){
+
+        document.getElementById("status").innerHTML = "mouse outside maze <br> YOU CHEATED YOU LOSE!";
+
+    }
+
 }
